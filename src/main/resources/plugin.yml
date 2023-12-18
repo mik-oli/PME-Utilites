@@ -5,3 +5,11 @@ main: com.github.mikoli.pmeutilities.PMEUtilities
 api-version: ${apiVersion}
 authors: ${authors}
 website: ${project.url}
+
+permissions:
+  pmeutils.miningmonitor.track:
+    default: true
+  pmeutils.miningmonitor.monitor:
+    default: op
+  pmeutils.itemlimit.bypass:
+    default: op

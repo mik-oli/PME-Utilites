@@ -2,7 +2,7 @@ package com.github.mikoli.pmeutilities.listeners;
 
 import com.github.mikoli.pmeutilities.ItemLimiter;
 import com.github.mikoli.pmeutilities.PMEUtilities;
-import com.github.mikoli.pmeutilities.Permissions;
+import com.github.mikoli.pmeutilities.utils.Permissions;
 import com.github.mikoli.pmeutilities.ringsMechanic.Rings;
 import com.github.mikoli.pmeutilities.ringsMechanic.RingsManager;
 

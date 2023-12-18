@@ -11,6 +11,7 @@ public final class PMEUtilities extends JavaPlugin {
 
     private final RingsManager ringsManager = new RingsManager(this);
     private final CustomRecipes customRecipes = new CustomRecipes(this);
+    private final MiningCounter miningCounter = new MiningCounter();
 
     //Events classes
     private final SwapHandItemsListener swapHandItemsListener = new SwapHandItemsListener(this);
@@ -18,6 +19,7 @@ public final class PMEUtilities extends JavaPlugin {
     private final PlayerJoinListener playerJoinListener = new PlayerJoinListener(this);
     private final InvClickListener invClickListener = new InvClickListener(this);
     private final ItemPickUpListener itemPickUpListener = new ItemPickUpListener(this);
+    private final MiningMonitor miningMonitor = new MiningMonitor(this);
 
     @Override
     public void onEnable() {
@@ -35,6 +37,10 @@ public final class PMEUtilities extends JavaPlugin {
         return this.ringsManager;
     }
 
+    public MiningCounter getMiningCounter() {
+        return miningCounter;
+    }
+
     private final PluginManager pluginManager = this.getServer().getPluginManager();
     private void setEventsListeners() {
         pluginManager.registerEvents(swapHandItemsListener, this);
@@ -42,5 +48,7 @@ public final class PMEUtilities extends JavaPlugin {
         pluginManager.registerEvents(playerJoinListener, this);
         pluginManager.registerEvents(invClickListener, this);
         pluginManager.registerEvents(itemPickUpListener, this);
+        pluginManager.registerEvents(miningMonitor, this);
+        pluginManager.registerEvents(playerJoinListener, this);
     }
 }
