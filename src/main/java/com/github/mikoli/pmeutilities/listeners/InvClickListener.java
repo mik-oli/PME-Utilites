@@ -35,7 +35,7 @@ public class InvClickListener implements Listener {
 
         ItemStack itemStack = event.getCursor();
         RingsManager ringsManager = plugin.getRingsManager();
-        if (itemStack == null || !ringsManager.isItemRing(itemStack)) return;
+        if (!ringsManager.isItemRing(itemStack)) return;
 
         Rings ring = ringsManager.getRingFromItem(itemStack);
         ringsManager.addPlayerRing(player, ring);
@@ -45,6 +45,7 @@ public class InvClickListener implements Listener {
     private void itemLimiter(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         Inventory inventory = event.getClickedInventory();
+        if (inventory == null) return;
         ItemStack item = null;
 
         if (player.hasPermission(Permissions.BYPASS_ITEM_LIMIT.getPermission())) return;
