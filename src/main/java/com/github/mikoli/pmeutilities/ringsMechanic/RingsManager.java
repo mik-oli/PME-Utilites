@@ -45,11 +45,13 @@ public class RingsManager {
     }
 
     public void playerAddEffect(Player player, Rings ring) {
-        player.addPotionEffect(ring.getEffectType().createEffect(Integer.MAX_VALUE, ring.getEffectStrength()));
+        for (int i = 0; i < ring.getEffectType().length; i++)
+            player.addPotionEffect(ring.getEffectType()[i].createEffect(PotionEffect.INFINITE_DURATION, ring.getEffectStrength()[i]));
     }
 
     public void playerRemoveEffect(Player player, Rings ring) {
-        player.removePotionEffect(ring.getEffectType());
+        for (int i = 0; i < ring.getEffectType().length; i++)
+            player.removePotionEffect(ring.getEffectType()[i]);
     }
 
     public void runTask() {
