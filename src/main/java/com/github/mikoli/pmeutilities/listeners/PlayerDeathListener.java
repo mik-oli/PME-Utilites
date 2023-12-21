@@ -1,0 +1,32 @@
+package com.github.mikoli.pmeutilities.listeners;
+
+import com.github.mikoli.pmeutilities.PMEUtilities;
+import com.github.mikoli.pmeutilities.utils.Permissions;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
+
+import java.util.Random;
+
+public class PlayerDeathListener implements Listener {
+
+    private final PMEUtilities plugin;
+
+    public PlayerDeathListener(PMEUtilities plugin) {
+        this.plugin = plugin;
+    }
+
+    @EventHandler
+    private void onPlayerDeathEvent(PlayerDeathEvent event) {
+        Player player = event.getPlayer();
+        if (player.hasPermission(Permissions.BYPASS_INVENTORY_CLEAR.getPermission())) return;
+
+        event.getDrops().removeIf(itemStack -> {
+            Random random = new Random();
+            int randomNum = random.nextInt(100);
+            return randomNum >= 50;
+        });
+    }
+}

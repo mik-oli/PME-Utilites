@@ -1,4 +1,4 @@
-package com.github.mikoli.pmeutilities.listeners;
+package com.github.mikoli.pmeutilities.otherMechanics;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

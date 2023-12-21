@@ -1,4 +1,4 @@
-package com.github.mikoli.pmeutilities;
+package com.github.mikoli.pmeutilities.otherMechanics;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

@@ -1,6 +1,6 @@
 package com.github.mikoli.pmeutilities.listeners;
 
-import com.github.mikoli.pmeutilities.ItemLimiter;
+import com.github.mikoli.pmeutilities.otherMechanics.ItemLimiter;
 import com.github.mikoli.pmeutilities.PMEUtilities;
 import com.github.mikoli.pmeutilities.utils.Permissions;
 

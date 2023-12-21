@@ -2,6 +2,7 @@ package com.github.mikoli.pmeutilities;
 
 import com.github.mikoli.pmeutilities.customCraftings.CustomRecipes;
 import com.github.mikoli.pmeutilities.listeners.*;
+import com.github.mikoli.pmeutilities.otherMechanics.MiningCounter;
 import com.github.mikoli.pmeutilities.ringsMechanic.RingsManager;
 
 import org.bukkit.plugin.PluginManager;
@@ -20,6 +21,7 @@ public final class PMEUtilities extends JavaPlugin {
     private final InvClickListener invClickListener = new InvClickListener(this);
     private final ItemPickUpListener itemPickUpListener = new ItemPickUpListener(this);
     private final MiningMonitor miningMonitor = new MiningMonitor(this);
+    private final PlayerDeathListener playerDeathListener = new PlayerDeathListener(this);
 
     @Override
     public void onEnable() {
@@ -50,5 +52,6 @@ public final class PMEUtilities extends JavaPlugin {
         pluginManager.registerEvents(itemPickUpListener, this);
         pluginManager.registerEvents(miningMonitor, this);
         pluginManager.registerEvents(playerJoinListener, this);
+        pluginManager.registerEvents(playerDeathListener, this);
     }
 }

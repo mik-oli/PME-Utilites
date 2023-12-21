@@ -22,7 +22,7 @@ public class MiningMonitor implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player targetPlayer = event.getPlayer();
-        if (!targetPlayer.hasPermission(Permissions.MININGMONITORTRACK.getPermission())) return;
+        if (!targetPlayer.hasPermission(Permissions.MININGMONITOR_TRACK.getPermission())) return;
         Block targetBlock = event.getBlock();
         if (plugin.getMiningCounter().wasCounted(targetBlock.getLocation())) return;
 
@@ -34,7 +34,7 @@ public class MiningMonitor implements Listener {
 
             Utils.consoleInfo(Utils.coloring(message));
             for (Player player : plugin.getServer().getOnlinePlayers()) {
-                if (player.hasPermission(Permissions.MININGMONITORMONITOR.getPermission())) {
+                if (player.hasPermission(Permissions.MININGMONITOR_MONITOR.getPermission())) {
                     //TODO message from config + coloring
                     player.sendMessage(Utils.coloring(message));
                 }

@@ -13,3 +13,5 @@ permissions:
     default: op
   pmeutils.itemlimit.bypass:
     default: op
+  pmeutils.bypassinvclear:
+    default: op

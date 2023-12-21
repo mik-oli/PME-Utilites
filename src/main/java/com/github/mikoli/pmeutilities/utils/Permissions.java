@@ -3,8 +3,9 @@ package com.github.mikoli.pmeutilities.utils;
 public enum Permissions {
 
     BYPASS_ITEM_LIMIT("itemlimit.bypass"),
-    MININGMONITORTRACK("miningmonitor.track"),
-    MININGMONITORMONITOR("miningmonitor.monitor");
+    MININGMONITOR_TRACK("miningmonitor.track"),
+    MININGMONITOR_MONITOR("miningmonitor.monitor"),
+    BYPASS_INVENTORY_CLEAR("bypassinvclear");
 
     private final String permission;
 
