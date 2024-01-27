@@ -36,7 +36,6 @@ public class CustomRecipes {
     public void registerArmorsCrafting() {
 
         for (Armor armor : armors) {
-
             if (armor.getHelmet() != null) {
                 NamespacedKey key = new NamespacedKey(plugin, armor.getTag() + ".helmet");
                 ShapedRecipe recipe = new ShapedRecipe(key, armor.getHelmet());

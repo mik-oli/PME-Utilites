@@ -1,13 +1,17 @@
 package com.github.mikoli.pmeutilities.customCraftings.armors;
 
+import com.github.mikoli.pmeutilities.PMEUtilities;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.UUID;
 
@@ -36,9 +40,7 @@ public class ArmorUtils {
 
         AttributeModifier newAttribute = new AttributeModifier(UUID.randomUUID(), "generic.armor", defencePoints, AttributeModifier.Operation.ADD_NUMBER, slot);
         itemMeta.addAttributeModifier(Attribute.GENERIC_ARMOR, newAttribute);
-
         itemMeta.setDisplayName(name);
-
         armor.setItemMeta(itemMeta);
 
         LeatherArmorMeta leatherArmorMeta = (LeatherArmorMeta) armor.getItemMeta();

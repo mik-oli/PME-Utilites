@@ -14,15 +14,6 @@ public final class PMEUtilities extends JavaPlugin {
     private final CustomRecipes customRecipes = new CustomRecipes(this);
     private final MiningCounter miningCounter = new MiningCounter();
 
-    //Events classes
-    private final SwapHandItemsListener swapHandItemsListener = new SwapHandItemsListener(this);
-    private final InvDragListener invDragListener = new InvDragListener(this);
-    private final PlayerJoinListener playerJoinListener = new PlayerJoinListener(this);
-    private final InvClickListener invClickListener = new InvClickListener(this);
-    private final ItemPickUpListener itemPickUpListener = new ItemPickUpListener(this);
-    private final MiningMonitor miningMonitor = new MiningMonitor(this);
-    private final PlayerDeathListener playerDeathListener = new PlayerDeathListener(this);
-
     @Override
     public void onEnable() {
         this.setEventsListeners();
@@ -45,13 +36,14 @@ public final class PMEUtilities extends JavaPlugin {
 
     private final PluginManager pluginManager = this.getServer().getPluginManager();
     private void setEventsListeners() {
-        pluginManager.registerEvents(swapHandItemsListener, this);
-        pluginManager.registerEvents(invDragListener, this);
-        pluginManager.registerEvents(playerJoinListener, this);
-        pluginManager.registerEvents(invClickListener, this);
-        pluginManager.registerEvents(itemPickUpListener, this);
-        pluginManager.registerEvents(miningMonitor, this);
-        pluginManager.registerEvents(playerJoinListener, this);
-        pluginManager.registerEvents(playerDeathListener, this);
+        pluginManager.registerEvents(new SwapHandItemsListener(this), this);
+        pluginManager.registerEvents(new InvDragListener(this), this);
+        pluginManager.registerEvents(new PlayerJoinListener(this), this);
+        pluginManager.registerEvents(new InvClickListener(this), this);
+        pluginManager.registerEvents(new ItemPickUpListener(this), this);
+        pluginManager.registerEvents(new MiningMonitor(this), this);
+        pluginManager.registerEvents(new PlayerDeathListener(this), this);
+        pluginManager.registerEvents(new PrepareItemCraftingListener(this), this);
+
     }
 }

@@ -64,7 +64,7 @@ public class RingsManager {
                     if (!isItemRing(item)) {
                         removePlayerRing(player);
                         for (PotionEffect effect : player.getActivePotionEffects()) {
-                            if (effect.getDuration() > 18000) {
+                            if (effect.getDuration() == PotionEffect.INFINITE_DURATION) {
                                 player.removePotionEffect(effect.getType());
                             }
                         }
