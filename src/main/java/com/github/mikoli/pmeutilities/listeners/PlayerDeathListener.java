@@ -1,7 +1,7 @@
 package com.github.mikoli.pmeutilities.listeners;
 
 import com.github.mikoli.pmeutilities.PMEUtilities;
-import com.github.mikoli.pmeutilities.utils.Permissions;
+import com.github.mikoli.pmeutilities.utils.enums.Permissions;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

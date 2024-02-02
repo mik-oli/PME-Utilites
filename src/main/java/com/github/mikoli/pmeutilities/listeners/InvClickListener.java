@@ -1,10 +1,10 @@
 package com.github.mikoli.pmeutilities.listeners;
 
+import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IRing;
 import com.github.mikoli.pmeutilities.otherMechanics.ItemLimiter;
 import com.github.mikoli.pmeutilities.PMEUtilities;
-import com.github.mikoli.pmeutilities.utils.Permissions;
-import com.github.mikoli.pmeutilities.ringsMechanic.Rings;
-import com.github.mikoli.pmeutilities.ringsMechanic.RingsManager;
+import com.github.mikoli.pmeutilities.utils.enums.Permissions;
+import com.github.mikoli.pmeutilities.otherMechanics.RingsManager;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,7 +37,7 @@ public class InvClickListener implements Listener {
         RingsManager ringsManager = plugin.getRingsManager();
         if (!ringsManager.isItemRing(itemStack)) return;
 
-        Rings ring = ringsManager.getRingFromItem(itemStack);
+        IRing ring = ringsManager.getRingFromItem(itemStack);
         ringsManager.addPlayerRing(player, ring);
         ringsManager.playerAddEffect(player, ring);
     }

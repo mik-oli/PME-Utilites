@@ -1,24 +1,26 @@
 package com.github.mikoli.pmeutilities;
 
-import com.github.mikoli.pmeutilities.customCraftings.CustomRecipes;
+import com.github.mikoli.pmeutilities.commands.CommandsHandler;
+import com.github.mikoli.pmeutilities.customItems.RecipesRegister;
 import com.github.mikoli.pmeutilities.listeners.*;
 import com.github.mikoli.pmeutilities.otherMechanics.MiningCounter;
-import com.github.mikoli.pmeutilities.ringsMechanic.RingsManager;
 
+import com.github.mikoli.pmeutilities.otherMechanics.RingsManager;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PMEUtilities extends JavaPlugin {
 
     private final RingsManager ringsManager = new RingsManager(this);
-    private final CustomRecipes customRecipes = new CustomRecipes(this);
     private final MiningCounter miningCounter = new MiningCounter();
+    private final RecipesRegister recipesRegister = new RecipesRegister(this);
+    private final CommandsHandler commandsHandler = new CommandsHandler(this);
 
     @Override
     public void onEnable() {
+        this.setCommandsExecutors();
         this.setEventsListeners();
         ringsManager.runTask();
-        customRecipes.registerArmorsCrafting();
     }
 
     @Override
@@ -45,5 +47,9 @@ public final class PMEUtilities extends JavaPlugin {
         pluginManager.registerEvents(new PlayerDeathListener(this), this);
         pluginManager.registerEvents(new PrepareItemCraftingListener(this), this);
 
+    }
+
+    private void setCommandsExecutors() {
+        this.getCommand("pmeutils").setExecutor(commandsHandler);
     }
 }

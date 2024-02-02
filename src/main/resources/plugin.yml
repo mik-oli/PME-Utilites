@@ -1,10 +1,16 @@
-name: PME-Utilities
+name: ${project.name}
 prefix: PME-Utils
 version: ${project.version}
 main: com.github.mikoli.pmeutilities.PMEUtilities
 api-version: ${apiVersion}
 authors: ${authors}
 website: ${project.url}
+
+commands:
+  pmeutils:
+    permission: pmeutils.pmeutils
+    aliases: [pmeutilities]
+    usage: /pmeutils <item> [id]
 
 permissions:
   pmeutils.miningmonitor.track:
@@ -14,4 +20,6 @@ permissions:
   pmeutils.itemlimit.bypass:
     default: op
   pmeutils.bypassinvclear:
+    default: op
+  pmeutils.getitem:
     default: op

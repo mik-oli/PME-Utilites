@@ -1,7 +1,7 @@
 package com.github.mikoli.pmeutilities.listeners;
 
 import com.github.mikoli.pmeutilities.PMEUtilities;
-import com.github.mikoli.pmeutilities.utils.Permissions;
+import com.github.mikoli.pmeutilities.utils.enums.Permissions;
 import com.github.mikoli.pmeutilities.utils.Utils;
 
 import org.bukkit.Material;
