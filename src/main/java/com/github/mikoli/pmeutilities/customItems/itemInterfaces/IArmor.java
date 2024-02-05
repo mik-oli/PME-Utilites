@@ -1,6 +1,6 @@
 package com.github.mikoli.pmeutilities.customItems.itemInterfaces;
 
-import com.github.mikoli.pmeutilities.utils.enums.ArmorTypes;
+import com.github.mikoli.pmeutilities.utils.enums.armors.ArmorTypes;
 
 import org.bukkit.inventory.ItemStack;
 

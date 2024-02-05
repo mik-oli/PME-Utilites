@@ -1,6 +1,6 @@
 package com.github.mikoli.pmeutilities.customItems.items.armors.erebor;
 
-import com.github.mikoli.pmeutilities.utils.enums.ArmorTypes;
+import com.github.mikoli.pmeutilities.utils.enums.armors.ArmorTypes;
 import com.github.mikoli.pmeutilities.customItems.ArmorUtils;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IArmor;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.ICustomCrafting;

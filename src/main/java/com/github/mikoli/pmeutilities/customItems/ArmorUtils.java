@@ -1,7 +1,7 @@
 package com.github.mikoli.pmeutilities.customItems;
 
-import com.github.mikoli.pmeutilities.utils.enums.ArmorTypes;
-import com.github.mikoli.pmeutilities.utils.enums.DefensePoints;
+import com.github.mikoli.pmeutilities.utils.enums.armors.ArmorTypes;
+import com.github.mikoli.pmeutilities.utils.enums.armors.DefensePoints;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;

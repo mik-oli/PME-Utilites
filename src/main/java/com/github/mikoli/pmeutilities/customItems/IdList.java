@@ -6,11 +6,16 @@ import com.github.mikoli.pmeutilities.customItems.items.armors.elfs.*;
 import com.github.mikoli.pmeutilities.customItems.items.armors.erebor.*;
 import com.github.mikoli.pmeutilities.customItems.items.armors.gondor.*;
 import com.github.mikoli.pmeutilities.customItems.items.armors.mordor.*;
+import com.github.mikoli.pmeutilities.customItems.items.armors.other.ArmorSauron;
 import com.github.mikoli.pmeutilities.customItems.items.rings.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.angmar.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.erebor.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.gondor.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.mordor.*;
+import com.github.mikoli.pmeutilities.customItems.items.swords.other.GlamdringSword;
+import com.github.mikoli.pmeutilities.customItems.items.swords.other.MorgulSword;
+import com.github.mikoli.pmeutilities.customItems.items.swords.other.NarsilSword;
+import com.github.mikoli.pmeutilities.customItems.items.swords.other.WizardSword;
 
 public enum IdList {
 
@@ -50,6 +55,7 @@ public enum IdList {
     MORDOR_MORIA_ARMOR(221, new ArmorMordorMoria()),
     MORDOR_SNAGA_ORC_ARMOR(222, new ArmorMordorSnagaOrc()),
     MORDOR_URUKHAI_ARMOR(223, new ArmorMordorUrukhai()),
+    SAURON_ARMOR(224, new ArmorSauron()),
 
     //SWORDS
     ANGMAR_SWORD_1(301, new AngmarSword1()),
@@ -71,7 +77,11 @@ public enum IdList {
     GONDOR_SWORD_1(317, new GondorSword1()),
     GONDOR_SWORD_2(318, new GondorSword2()),
     GONDOR_SWORD_3(319, new GondorSword3()),
-    GONDOR_SWORD_4(320, new GondorSword4());
+    GONDOR_SWORD_4(320, new GondorSword4()),
+    WIZARD_SWORD(321, new WizardSword()),
+    GLAMDRING_SWORD(322, new GlamdringSword()),
+    MORGUL_SWORD(323, new MorgulSword()),
+    NARSIL_SWORD(324, new NarsilSword());
 
     private final int id;
     private final ICustomItem customItem;

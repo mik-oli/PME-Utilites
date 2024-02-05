@@ -1,31 +1,30 @@
-package com.github.mikoli.pmeutilities.customItems.items.armors.erebor;
+package com.github.mikoli.pmeutilities.customItems.items.armors.other;
 
-import com.github.mikoli.pmeutilities.utils.enums.armors.ArmorTypes;
 import com.github.mikoli.pmeutilities.customItems.ArmorUtils;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IArmor;
-import com.github.mikoli.pmeutilities.customItems.itemInterfaces.ICustomCrafting;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.ICustomItem;
+import com.github.mikoli.pmeutilities.utils.enums.armors.ArmorTypes;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.HashMap;
 import java.util.List;
 
-public class ArmorEreborAxeman implements ICustomItem, IArmor, ICustomCrafting {
+public class ArmorSauron implements ICustomItem, IArmor {
     @Override
     public int getColorId() {
-        return 10486015;
+        return 15073535;
     }
 
     @Override
     public ArmorTypes getArmorType() {
-        return ArmorTypes.DIAMOND;
+        return ArmorTypes.NETHERITE;
     }
 
     @Override
     public ItemStack getHelmet() {
-        ItemStack itemStack = ArmorUtils.getHelmet(this.getColorId(), this.getArmorType(), "Hełm topornika Ereboru");
+        ItemStack itemStack = ArmorUtils.getHelmet(this.getColorId(), this.getArmorType(), "Hełm Saurona");
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setCustomModelData(this.getDataModelId());
         itemStack.setItemMeta(itemMeta);
@@ -34,7 +33,7 @@ public class ArmorEreborAxeman implements ICustomItem, IArmor, ICustomCrafting {
 
     @Override
     public ItemStack getChestplate() {
-        ItemStack itemStack = ArmorUtils.getChestplate(this.getColorId(), this.getArmorType(), "Napierśnik  topornika Ereboru");
+        ItemStack itemStack = ArmorUtils.getChestplate(this.getColorId(), this.getArmorType(), "Napierśnik Saurona");
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setCustomModelData(this.getDataModelId());
         itemStack.setItemMeta(itemMeta);
@@ -43,7 +42,7 @@ public class ArmorEreborAxeman implements ICustomItem, IArmor, ICustomCrafting {
 
     @Override
     public ItemStack getLeggings() {
-        ItemStack itemStack = ArmorUtils.getLeggings(this.getColorId(), this.getArmorType(), "Nogawice  topornika Ereboru");
+        ItemStack itemStack = ArmorUtils.getLeggings(this.getColorId(), this.getArmorType(), "Nogawice Saurona");
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setCustomModelData(this.getDataModelId());
         itemStack.setItemMeta(itemMeta);
@@ -52,7 +51,7 @@ public class ArmorEreborAxeman implements ICustomItem, IArmor, ICustomCrafting {
 
     @Override
     public ItemStack getBoots() {
-        ItemStack itemStack = ArmorUtils.getBoots(this.getColorId(), this.getArmorType(), "Buty  topornika Ereboru");
+        ItemStack itemStack = ArmorUtils.getBoots(this.getColorId(), this.getArmorType(), "Buty Saurona");
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setCustomModelData(this.getDataModelId());
         itemStack.setItemMeta(itemMeta);
@@ -60,26 +59,8 @@ public class ArmorEreborAxeman implements ICustomItem, IArmor, ICustomCrafting {
     }
 
     @Override
-    public String getTag() {
-        return "ereborAxeMan";
-    }
-
-    @Override
-    public String[] getShape() {
-        return new String[] {"SD ", "   ", "   "};
-    }
-
-    @Override
-    public HashMap<Character, Material> getIngredientsMap() {
-        return new HashMap<Character, Material>() {{
-            put('S', null);
-            put('D', Material.YELLOW_DYE);
-        }};
-    }
-
-    @Override
     public int getDataModelId() {
-        return 209;
+        return 224;
     }
 
     @Override

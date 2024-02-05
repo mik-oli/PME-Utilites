@@ -1,4 +1,4 @@
-package com.github.mikoli.pmeutilities.utils.enums;
+package com.github.mikoli.pmeutilities.utils.enums.armors;
 
 public enum DefensePoints {
 
@@ -6,7 +6,8 @@ public enum DefensePoints {
     IRON(2, 6, 5, 2),
     CHAIN(2, 5, 4, 1),
     GOLD(2, 5, 3, 1),
-    DIAMOND(3, 8, 6, 3);
+    DIAMOND(3, 8, 6, 3),
+    NETHERITE(3, 8, 6, 3);
 
     private final int helmet, chestplate, leggings, boots;
 
