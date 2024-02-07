@@ -1,6 +1,7 @@
 package com.github.mikoli.pmeutilities;
 
 import com.github.mikoli.pmeutilities.commands.CommandsHandler;
+import com.github.mikoli.pmeutilities.customItems.CustomDurabilityUtil;
 import com.github.mikoli.pmeutilities.customItems.RecipesRegister;
 import com.github.mikoli.pmeutilities.listeners.*;
 import com.github.mikoli.pmeutilities.otherMechanics.MiningCounter;
@@ -18,6 +19,7 @@ public final class PMEUtilities extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        new CustomDurabilityUtil(this);
         this.setCommandsExecutors();
         this.setEventsListeners();
         ringsManager.runTask();
@@ -46,7 +48,7 @@ public final class PMEUtilities extends JavaPlugin {
         pluginManager.registerEvents(new MiningMonitor(this), this);
         pluginManager.registerEvents(new PlayerDeathListener(this), this);
         pluginManager.registerEvents(new PrepareItemCraftingListener(this), this);
-
+        pluginManager.registerEvents(new ItemDamageListener(this), this);
     }
 
     private void setCommandsExecutors() {
