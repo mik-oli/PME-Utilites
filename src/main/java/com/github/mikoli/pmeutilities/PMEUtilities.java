@@ -14,12 +14,13 @@ public final class PMEUtilities extends JavaPlugin {
 
     private final RingsManager ringsManager = new RingsManager(this);
     private final MiningCounter miningCounter = new MiningCounter();
-    private final RecipesRegister recipesRegister = new RecipesRegister(this);
     private final CommandsHandler commandsHandler = new CommandsHandler(this);
 
+    private static JavaPlugin instance;
     @Override
     public void onEnable() {
-        new CustomDurabilityUtil(this);
+        instance = this;
+        new RecipesRegister(this);
         this.setCommandsExecutors();
         this.setEventsListeners();
         ringsManager.runTask();
@@ -53,5 +54,9 @@ public final class PMEUtilities extends JavaPlugin {
 
     private void setCommandsExecutors() {
         this.getCommand("pmeutils").setExecutor(commandsHandler);
+    }
+
+    public static JavaPlugin getInstance() {
+        return instance;
     }
 }

@@ -8,13 +8,8 @@ import org.bukkit.persistence.PersistentDataType;
 
 public class CustomDurabilityUtil {
 
-    private static NamespacedKey customDurabilityKey;
-    private static NamespacedKey maxDurabilityKey;
-
-    public CustomDurabilityUtil(PMEUtilities plugin) {
-        customDurabilityKey = new NamespacedKey(plugin, "customDurability");
-        maxDurabilityKey = new NamespacedKey(plugin, "maxDurability");
-    }
+    private static final NamespacedKey customDurabilityKey = new NamespacedKey(PMEUtilities.getInstance(), "customDurability");
+    private static final NamespacedKey maxDurabilityKey = new NamespacedKey(PMEUtilities.getInstance(), "maxDurability");
 
     public static Boolean hasData(boolean n, PersistentDataContainer dataContainer) {
         if (n) return dataContainer.has(maxDurabilityKey, PersistentDataType.INTEGER);
