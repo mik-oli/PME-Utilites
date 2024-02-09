@@ -7,6 +7,10 @@ import com.github.mikoli.pmeutilities.customItems.items.armors.erebor.*;
 import com.github.mikoli.pmeutilities.customItems.items.armors.gondor.*;
 import com.github.mikoli.pmeutilities.customItems.items.armors.mordor.*;
 import com.github.mikoli.pmeutilities.customItems.items.armors.other.ArmorSauron;
+import com.github.mikoli.pmeutilities.customItems.items.other.AngmarBanner;
+import com.github.mikoli.pmeutilities.customItems.items.other.EreborBanner;
+import com.github.mikoli.pmeutilities.customItems.items.other.GondorBanner;
+import com.github.mikoli.pmeutilities.customItems.items.other.MordorBanner;
 import com.github.mikoli.pmeutilities.customItems.items.rings.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.angmar.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.erebor.*;
@@ -18,6 +22,12 @@ import com.github.mikoli.pmeutilities.customItems.items.swords.other.NarsilSword
 import com.github.mikoli.pmeutilities.customItems.items.swords.other.WizardSword;
 
 public enum IdList {
+
+    //BANNERS
+    EREBOR_BANNER(10, new EreborBanner()),
+    ANGMAR_BANNER(11, new AngmarBanner()),
+    GONDOR_BANNER(12, new GondorBanner()),
+    MORDOR_BANNER(13, new MordorBanner()),
 
     //RINGS
     ASH_NAZG_RING(100, new AshNazgRing()),
