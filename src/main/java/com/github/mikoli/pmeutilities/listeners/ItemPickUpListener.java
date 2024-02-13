@@ -1,6 +1,5 @@
 package com.github.mikoli.pmeutilities.listeners;
 
-import com.github.mikoli.pmeutilities.otherMechanics.ItemLimiter;
 import com.github.mikoli.pmeutilities.PMEUtilities;
 import com.github.mikoli.pmeutilities.utils.enums.Permissions;
 
@@ -25,14 +24,6 @@ public class ItemPickUpListener implements Listener {
         ItemStack item = event.getItem().getItemStack();
 
         if (player.hasPermission(Permissions.BYPASS_ITEM_LIMIT.getPermission())) return;
-
-        for (ItemLimiter limitedItem : ItemLimiter.values()) {
-            if (limitedItem.getItemMaterial() == item.getType()) {
-                if (item.getAmount() > (limitedItem.getLimit() - ItemLimiter.getAmount(player, limitedItem))) {
-                    event.setCancelled(true);
-                    break;
-                }
-            }
-        }
+        if (ListenersUtils.itemLimiter(player, item)) event.setCancelled(true);
     }
 }

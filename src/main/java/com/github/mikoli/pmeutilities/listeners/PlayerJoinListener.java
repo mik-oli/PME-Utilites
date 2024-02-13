@@ -1,8 +1,6 @@
 package com.github.mikoli.pmeutilities.listeners;
 
 import com.github.mikoli.pmeutilities.PMEUtilities;
-import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IRing;
-import com.github.mikoli.pmeutilities.otherMechanics.RingsManager;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,13 +21,7 @@ public class PlayerJoinListener implements Listener {
     private void onPlayerJoinEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         ItemStack itemStack = player.getInventory().getItem(EquipmentSlot.OFF_HAND);
-        RingsManager ringsManager = plugin.getRingsManager();
 
-        if (!ringsManager.isItemRing(itemStack)) return;
-        if (ringsManager.hasPlayerRing(player)) return;
-
-        IRing ring = ringsManager.getRingFromItem(itemStack);
-        ringsManager.addPlayerRing(player, ring);
-        ringsManager.playerAddEffect(player, ring);
+        ListenersUtils.ringsLogic(plugin, player, itemStack);
     }
 }

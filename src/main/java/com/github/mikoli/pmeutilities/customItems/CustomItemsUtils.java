@@ -6,6 +6,13 @@ import java.util.ArrayList;
 
 public class CustomItemsUtils {
 
+    public static boolean isCustomArmor(int id) {
+        for (ICustomItem customItem : getCustomArmors()) {
+            if (customItem.getDataModelId() == id) return true;
+        }
+        return false;
+    }
+
     public static ArrayList<ICustomItem> getCustomItems() {
         ArrayList<ICustomItem> toReturn = new ArrayList<>();
         toReturn.addAll(getCustomRings());

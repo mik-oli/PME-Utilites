@@ -24,6 +24,7 @@ public class RingsManager {
 
     public boolean isItemRing(ItemStack item) {
 
+        if (item == null) return false;
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return false;
         if (!meta.hasCustomModelData()) return false;

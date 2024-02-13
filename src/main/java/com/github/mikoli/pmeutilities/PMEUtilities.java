@@ -42,7 +42,6 @@ public final class PMEUtilities extends JavaPlugin {
     private final PluginManager pluginManager = this.getServer().getPluginManager();
     private void setEventsListeners() {
         pluginManager.registerEvents(new SwapHandItemsListener(this), this);
-        pluginManager.registerEvents(new InvDragListener(this), this);
         pluginManager.registerEvents(new PlayerJoinListener(this), this);
         pluginManager.registerEvents(new InvClickListener(this), this);
         pluginManager.registerEvents(new ItemPickUpListener(this), this);
@@ -50,6 +49,7 @@ public final class PMEUtilities extends JavaPlugin {
         pluginManager.registerEvents(new PlayerDeathListener(this), this);
         pluginManager.registerEvents(new PrepareItemCraftingListener(this), this);
         pluginManager.registerEvents(new ItemDamageListener(this), this);
+        pluginManager.registerEvents(new PlayerDropItemListener(this), this);
     }
 
     private void setCommandsExecutors() {

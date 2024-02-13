@@ -1,17 +1,20 @@
 package com.github.mikoli.pmeutilities.listeners;
 
-import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IRing;
-import com.github.mikoli.pmeutilities.otherMechanics.ItemLimiter;
 import com.github.mikoli.pmeutilities.PMEUtilities;
+import com.github.mikoli.pmeutilities.customItems.CustomItemsUtils;
+import com.github.mikoli.pmeutilities.customItems.itemInterfaces.ICustomItem;
 import com.github.mikoli.pmeutilities.utils.enums.Permissions;
-import com.github.mikoli.pmeutilities.otherMechanics.RingsManager;
 
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class InvClickListener implements Listener {
 
@@ -24,43 +27,39 @@ public class InvClickListener implements Listener {
     @EventHandler
     private void onInvClickEvent(InventoryClickEvent event) {
 
-        ringsLogic(event);
-        itemLimiter(event);
-    }
-
-    private void ringsLogic(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        int slot = event.getSlot();
-        if (slot != 40) return;
-
+        Inventory inventory = event.getClickedInventory();
+        if (inventory == null) return;
         ItemStack itemStack = event.getCursor();
-        RingsManager ringsManager = plugin.getRingsManager();
-        if (!ringsManager.isItemRing(itemStack)) return;
 
-        IRing ring = ringsManager.getRingFromItem(itemStack);
-        ringsManager.addPlayerRing(player, ring);
-        ringsManager.playerAddEffect(player, ring);
+        if (event.getSlot() == 40) ListenersUtils.ringsLogic(plugin, player, itemStack);
+        itemLimiter(event);
+        armorPainter(event);
     }
 
     private void itemLimiter(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         Inventory inventory = event.getClickedInventory();
         if (inventory == null) return;
-        ItemStack item = null;
 
         if (player.hasPermission(Permissions.BYPASS_ITEM_LIMIT.getPermission())) return;
 
+        ItemStack item = null;
         if (inventory.getHolder() == player) item = event.getCursor();
         else if (inventory.getHolder() != player && event.getClick().isShiftClick()) inventory.getItem(event.getSlot());
         if (item == null) return;
 
-        for (ItemLimiter limitedItem : ItemLimiter.values()) {
-           if (limitedItem.getItemMaterial() == item.getType()) {
-               if (item.getAmount() > (limitedItem.getLimit() - ItemLimiter.getAmount(player, limitedItem))) {
-                   event.setCancelled(true);
-                   break;
-               }
-           }
-        }
+        if (ListenersUtils.itemLimiter(player, item)) event.setCancelled(true);
+    }
+
+    private void armorPainter(InventoryClickEvent event) {
+        ItemStack itemStack = event.getCursor();
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta == null) return;
+        if (!itemMeta.hasCustomModelData()) return;
+        if (!CustomItemsUtils.isCustomArmor(itemMeta.getCustomModelData())) return;
+
+        if (event.getSlotType() == InventoryType.SlotType.ARMOR) itemStack.setItemMeta(ListenersUtils.armorPainter(itemStack, true));
+        else itemStack.setItemMeta(ListenersUtils.armorPainter(itemStack, false));
     }
 }

@@ -1,8 +1,6 @@
 package com.github.mikoli.pmeutilities.listeners;
 
 import com.github.mikoli.pmeutilities.PMEUtilities;
-import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IRing;
-import com.github.mikoli.pmeutilities.otherMechanics.RingsManager;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class SwapHandItemsListener implements Listener {
 
-    private PMEUtilities plugin;
+    private final PMEUtilities plugin;
 
     public SwapHandItemsListener(PMEUtilities plugin) {
         this.plugin = plugin;
@@ -22,12 +20,7 @@ public class SwapHandItemsListener implements Listener {
     private  void onSwapHandItems(PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
         ItemStack itemStack = event.getOffHandItem();
-        RingsManager ringsManager = plugin.getRingsManager();
 
-        if (itemStack == null || !ringsManager.isItemRing(itemStack)) return;
-
-        IRing ring = ringsManager.getRingFromItem(itemStack);
-        ringsManager.addPlayerRing(player, ring);
-        ringsManager.playerAddEffect(player, ring);
+        ListenersUtils.ringsLogic(plugin, player, itemStack);
     }
 }
