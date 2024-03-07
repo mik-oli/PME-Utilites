@@ -27,7 +27,8 @@ public class PlayerDeathListener implements Listener {
         for (ItemStack itemStack : event.getDrops()) {
             ItemMeta itemMeta = itemStack.getItemMeta();
             if (!itemMeta.hasCustomModelData()) continue;
-            if (CustomItemsUtils.isCustomArmor(itemMeta.getCustomModelData())) itemStack.setItemMeta(ListenersUtils.armorPainter(itemStack, false));
+            if (CustomItemsUtils.isCustomArmor(itemMeta.getCustomModelData()) && itemStack.getType().name().contains("LEATHER_"))
+                event.getDrops().set(event.getDrops().indexOf(itemStack), ListenersUtils.armorPlaceholder(itemStack));
         }
 
         Player player = event.getEntity();

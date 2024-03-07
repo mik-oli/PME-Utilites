@@ -50,6 +50,7 @@ public final class PMEUtilities extends JavaPlugin {
         pluginManager.registerEvents(new PrepareItemCraftingListener(this), this);
         pluginManager.registerEvents(new ItemDamageListener(this), this);
         pluginManager.registerEvents(new PlayerDropItemListener(this), this);
+        pluginManager.registerEvents(new PlayerInteractListener(this), this);
     }
 
     private void setCommandsExecutors() {

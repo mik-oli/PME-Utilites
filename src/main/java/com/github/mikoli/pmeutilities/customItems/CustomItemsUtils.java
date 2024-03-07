@@ -61,6 +61,7 @@ public class CustomItemsUtils {
             add(IdList.MORDOR_MORIA_ARMOR.getCustomItem());
             add(IdList.MORDOR_SNAGA_ORC_ARMOR.getCustomItem());
             add(IdList.MORDOR_URUKHAI_ARMOR.getCustomItem());
+            add(IdList.SAURON_ARMOR.getCustomItem());
         }};
     }
 

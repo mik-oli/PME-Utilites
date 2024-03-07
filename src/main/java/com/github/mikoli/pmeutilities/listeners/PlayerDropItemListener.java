@@ -23,6 +23,6 @@ public class PlayerDropItemListener implements Listener {
         ItemStack itemStack = event.getItemDrop().getItemStack();
         ItemMeta itemMeta = itemStack.getItemMeta();
         if (!itemMeta.hasCustomModelData()) return;
-        if (CustomItemsUtils.isCustomArmor(itemMeta.getCustomModelData())) itemStack.setItemMeta(ListenersUtils.armorPainter(itemStack, false));
+        if (CustomItemsUtils.isCustomArmor(itemMeta.getCustomModelData()) && itemStack.getType().name().contains("LEATHER_")) event.getItemDrop().setItemStack(ListenersUtils.armorPlaceholder(itemStack));
     }
 }
