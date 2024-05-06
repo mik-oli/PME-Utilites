@@ -13,13 +13,12 @@ import com.github.mikoli.pmeutilities.customItems.items.other.GondorBanner;
 import com.github.mikoli.pmeutilities.customItems.items.other.MordorBanner;
 import com.github.mikoli.pmeutilities.customItems.items.rings.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.angmar.*;
+import com.github.mikoli.pmeutilities.customItems.items.swords.elves.ElvesSword1;
+import com.github.mikoli.pmeutilities.customItems.items.swords.elves.ElvesSword2;
 import com.github.mikoli.pmeutilities.customItems.items.swords.erebor.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.gondor.*;
 import com.github.mikoli.pmeutilities.customItems.items.swords.mordor.*;
-import com.github.mikoli.pmeutilities.customItems.items.swords.other.GlamdringSword;
-import com.github.mikoli.pmeutilities.customItems.items.swords.other.MorgulSword;
-import com.github.mikoli.pmeutilities.customItems.items.swords.other.NarsilSword;
-import com.github.mikoli.pmeutilities.customItems.items.swords.other.WizardSword;
+import com.github.mikoli.pmeutilities.customItems.items.swords.other.*;
 
 public enum IdList {
 
@@ -91,7 +90,10 @@ public enum IdList {
     WIZARD_SWORD(321, new WizardSword()),
     GLAMDRING_SWORD(322, new GlamdringSword()),
     MORGUL_SWORD(323, new MorgulSword()),
-    NARSIL_SWORD(324, new NarsilSword());
+    NARSIL_SWORD(324, new NarsilSword()),
+    GIMILI_SWORD(325, new GimiliSword()),
+    NOLDOR_SWORD(326, new ElvesSword1()),
+    SILVANAS_SWORD(327, new ElvesSword2());
 
     private final int id;
     private final ICustomItem customItem;

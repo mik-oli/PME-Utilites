@@ -4,6 +4,7 @@ import com.github.mikoli.pmeutilities.PMEUtilities;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IArmor;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.ICustomCrafting;
 import com.github.mikoli.pmeutilities.customItems.itemInterfaces.ICustomItem;
+import com.github.mikoli.pmeutilities.listeners.ListenersUtils;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -45,7 +46,8 @@ public class RecipesRegister {
 
         if (armor.getHelmet() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".helmet");
-            ShapedRecipe recipe = new ShapedRecipe(key, armor.getHelmet());
+//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getHelmet());
+            ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getHelmet()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
                 Material material = crafting.getIngredientsMap().get(c);
@@ -56,7 +58,8 @@ public class RecipesRegister {
         }
         if (armor.getChestplate() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".chestplate");
-            ShapedRecipe recipe = new ShapedRecipe(key, armor.getChestplate());
+//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getChestplate());
+            ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getChestplate()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
                 Material material = crafting.getIngredientsMap().get(c);
@@ -67,7 +70,8 @@ public class RecipesRegister {
         }
         if (armor.getLeggings() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".leggings");
-            ShapedRecipe recipe = new ShapedRecipe(key, armor.getLeggings());
+//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getLeggings());
+            ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getLeggings()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
                 Material material = crafting.getIngredientsMap().get(c);
@@ -78,7 +82,8 @@ public class RecipesRegister {
         }
         if (armor.getBoots() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".boots");
-            ShapedRecipe recipe = new ShapedRecipe(key, armor.getBoots());
+//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getBoots());
+            ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getBoots()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
                 Material material = crafting.getIngredientsMap().get(c);

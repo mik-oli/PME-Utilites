@@ -9,6 +9,7 @@ import com.github.mikoli.pmeutilities.customItems.itemInterfaces.IRing;
 import com.github.mikoli.pmeutilities.otherMechanics.ItemLimiter;
 import com.github.mikoli.pmeutilities.otherMechanics.RingsManager;
 
+import com.github.mikoli.pmeutilities.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -27,6 +28,7 @@ public class ListenersUtils {
         IRing ring = ringsManager.getRingFromItem(itemStack);
         ringsManager.addPlayerRing(player, ring);
         ringsManager.playerAddEffect(player, ring);
+        Bukkit.broadcastMessage(Utils.coloring("&aGracz &e" + player.getName() + " założył pierścień: " + "&e" + ((ICustomItem) ring).getName()));
     }
 
     public static boolean itemLimiter(Player player, ItemStack itemStack) {
