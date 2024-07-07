@@ -24,6 +24,7 @@ public class CommandsHandler implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
 
+        if (args.length <= 0) return false;
         ISubCommand subCommand = this.getSubCommand(args[0]);
         if (subCommand == null) return false;
         if (subCommand.isPlayerOnly() && !(commandSender instanceof Player)) {
