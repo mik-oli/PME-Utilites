@@ -28,7 +28,7 @@ public class ListenersUtils {
         IRing ring = ringsManager.getRingFromItem(itemStack);
         ringsManager.addPlayerRing(player, ring);
         ringsManager.playerAddEffect(player, ring);
-        Bukkit.broadcastMessage(Utils.coloring("&aGracz &e" + player.getName() + " założył pierścień: " + "&e" + ((ICustomItem) ring).getName()));
+        Bukkit.broadcastMessage(Utils.coloring("&eGracz &a" + player.getName() + " &ezałożył pierścień: " + "&a" + ((ICustomItem) ring).getName()));
     }
 
     public static boolean itemLimiter(Player player, ItemStack itemStack) {

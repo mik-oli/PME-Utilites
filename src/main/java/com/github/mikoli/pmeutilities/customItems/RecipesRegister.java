@@ -19,7 +19,7 @@ public class RecipesRegister {
         this.registerRecipes();
     }
 
-    private void registerRecipes() {
+    public void registerRecipes() {
 
         for (IdList id : IdList.values()) {
             ICustomItem customItem = id.getCustomItem();
@@ -39,6 +39,16 @@ public class RecipesRegister {
         }
     }
 
+    public void unregisterRecipes() {
+        for (IdList id : IdList.values()) {
+            ICustomItem customItem = id.getCustomItem();
+            if (!(customItem instanceof ICustomCrafting)) continue;
+            ICustomCrafting crafting = (ICustomCrafting) customItem;
+            NamespacedKey key = new NamespacedKey(plugin, "pme_" + crafting.getTag());
+            plugin.getServer().removeRecipe(key);
+        }
+    }
+
     private void registerArmorCrafting(ICustomItem customItem) {
 
         IArmor armor = (IArmor) customItem;
@@ -46,7 +56,6 @@ public class RecipesRegister {
 
         if (armor.getHelmet() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".helmet");
-//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getHelmet());
             ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getHelmet()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
@@ -58,7 +67,6 @@ public class RecipesRegister {
         }
         if (armor.getChestplate() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".chestplate");
-//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getChestplate());
             ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getChestplate()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
@@ -70,7 +78,6 @@ public class RecipesRegister {
         }
         if (armor.getLeggings() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".leggings");
-//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getLeggings());
             ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getLeggings()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {
@@ -82,7 +89,6 @@ public class RecipesRegister {
         }
         if (armor.getBoots() != null) {
             NamespacedKey key = new NamespacedKey(plugin, crafting.getTag() + ".boots");
-//            ShapedRecipe recipe = new ShapedRecipe(key, armor.getBoots());
             ShapedRecipe recipe = new ShapedRecipe(key, ListenersUtils.armorPlaceholder(armor.getBoots()));
             recipe.shape(crafting.getShape());
             for (char c : crafting.getIngredientsMap().keySet()) {

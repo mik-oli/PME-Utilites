@@ -40,7 +40,7 @@ public class GondorSword4 implements ICustomItem, ICustomCrafting {
 
     @Override
     public String getName() {
-        return "Mithrilowy topór gondoru";
+        return "Mithrilowy miecz gondoru";
     }
 
     @Override

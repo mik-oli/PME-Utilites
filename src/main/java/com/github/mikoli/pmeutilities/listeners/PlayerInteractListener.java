@@ -31,6 +31,7 @@ public class PlayerInteractListener implements Listener {
         ItemStack itemToSet = event.getItem();
         ItemMeta itemToSetMeta = itemToSet.getItemMeta();
         EquipmentSlot equipmentSlot = getArmorPart(itemToSet);
+        if (equipmentSlot == null) return;
 
         ItemStack itemInSlot = player.getInventory().getItem(equipmentSlot);
         ItemMeta itemInSlotMeta = null;

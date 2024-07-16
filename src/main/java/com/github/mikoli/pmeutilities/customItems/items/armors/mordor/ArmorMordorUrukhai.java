@@ -20,7 +20,7 @@ public class ArmorMordorUrukhai implements ICustomItem, IArmor, ICustomCrafting 
 
     @Override
     public ArmorTypes getArmorType() {
-        return ArmorTypes.IRON;
+        return ArmorTypes.DIAMOND;
     }
 
     @Override

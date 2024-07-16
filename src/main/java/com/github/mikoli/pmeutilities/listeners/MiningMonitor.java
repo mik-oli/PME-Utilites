@@ -30,7 +30,7 @@ public class MiningMonitor implements Listener {
         //TODO ores from config
         if (ore.equals(Material.DIAMOND_ORE) || ore.equals(Material.EMERALD_ORE) || ore.equals(Material.GOLD_ORE)) {
             int blocksTotal = plugin.getMiningCounter().getTotalBlocks(targetBlock);
-            String message = ("&c" + targetPlayer + " &efound &b" + blocksTotal + " " + ore);
+            String message = ("&c" + targetPlayer.getDisplayName() + " &efound &b" + blocksTotal + " " + ore);
 
             Utils.consoleInfo(Utils.coloring(message));
             for (Player player : plugin.getServer().getOnlinePlayers()) {
